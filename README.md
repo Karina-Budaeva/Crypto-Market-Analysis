@@ -17,6 +17,7 @@
   - `requests` для работы с API
   - `pandas` для обработки данных
   - `matplotlib` и `seaborn` для визуализации данных
+  - `tabulate` для фортматирования таблиц
 
 ## Как начать
 ### Необходимые условия
@@ -68,7 +69,7 @@ pip install requests pandas matplotlib seaborn
 ![Столбчатая диаграмма](https://github.com/user-attachments/assets/02bcf79f-e6db-4127-b007-23e92333bebf)
 
 ### Круговая диаграмма с распределением рыночной капитализации
-(![Круговая диаграмма](https://github.com/user-attachments/assets/a2a0da9c-2e41-466e-bdbc-1414972d0b4d)
+![Круговая диаграмма](https://github.com/user-attachments/assets/a2a0da9c-2e41-466e-bdbc-1414972d0b4d)
 
 ## Используемое API
 - [CoinGecko API](https://www.coingecko.com/en/api): Предоставляет данные о рынке криптовалют.
