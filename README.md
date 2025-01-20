@@ -38,7 +38,7 @@ pip install requests pandas matplotlib seaborn
    ```
 3. Запустите скрипт:
    ```bash
-   python main.py
+   python crypto_data.py
    ```
 
 ### Результаты
