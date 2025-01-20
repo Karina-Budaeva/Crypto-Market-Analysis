@@ -2,6 +2,8 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from tabulate import tabulate
+
 
 # Функция для загрузки данных
 def load_data(url, params):
@@ -31,7 +33,22 @@ if not df.empty:
     print("Топ-10 криптовалют:")
     print(df[['name', 'symbol', 'current_price', 'market_cap', 'total_volume']])
 
-    # 1. Столбчатый график: текущие цены
+# Сохранение таблицы в формате Markdown
+    table_md = tabulate(
+        df[['name', 'symbol', 'current_price', 'market_cap', 'total_volume']],
+        headers=['Name', 'Symbol', 'Current Price (USD)', 'Market Cap', 'Total Volume'],
+        tablefmt="github"
+    )
+
+# Запись таблицы в файл
+    with open("table.md", "w", encoding="utf-8") as f:
+        f.write("### Пример таблицы данных\n")
+        f.write(table_md)
+
+    print("\nТаблица успешно сохранена в файл table.md.")
+
+
+# 1. Столбчатый график: текущие цены
     plt.figure(figsize=(10, 6))
     sns.barplot(y='name', x='current_price', data=df, hue='name', dodge=False)
     plt.title("Текущие цены криптовалют (в USD)")
@@ -40,7 +57,7 @@ if not df.empty:
     plt.legend([], [], frameon=False)  # Убираем лишнюю легенду
     plt.show()
 
-    # 2. Круговая диаграмма: доля рыночной капитализации
+# 2. Круговая диаграмма: доля рыночной капитализации
     plt.figure(figsize=(8, 8))
     plt.pie(
         df['market_cap'],
